@@ -30,7 +30,7 @@ import (
 	"testing"
 	"time"
 
-	"golang.org/x/net/http2/hpack"
+	"github.com/s-pigeon/net/http2/hpack"
 )
 
 var (

@@ -14,8 +14,8 @@ import (
 	"strings"
 	"sync"
 
-	"golang.org/x/net/http2/hpack"
-	"golang.org/x/net/lex/httplex"
+	"github.com/s-pigeon/net/http2/hpack"
+	"github.com/s-pigeon/net/lex/httplex"
 )
 
 const frameHeaderLen = 9

@@ -9,8 +9,8 @@ package ipv4
 import (
 	"unsafe"
 
-	"golang.org/x/net/bpf"
-	"golang.org/x/net/internal/socket"
+	"github.com/s-pigeon/net/bpf"
+	"github.com/s-pigeon/net/internal/socket"
 )
 
 func (so *sockOpt) setAttachFilter(c *socket.Conn, f []bpf.RawInstruction) error {

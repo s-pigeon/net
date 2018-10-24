@@ -12,9 +12,9 @@ import (
 	"sync"
 	"testing"
 
-	"golang.org/x/net/internal/iana"
-	"golang.org/x/net/internal/nettest"
-	"golang.org/x/net/ipv6"
+	"github.com/s-pigeon/net/internal/iana"
+	"github.com/s-pigeon/net/internal/nettest"
+	"github.com/s-pigeon/net/ipv6"
 )
 
 func BenchmarkReadWriteUnicast(b *testing.B) {

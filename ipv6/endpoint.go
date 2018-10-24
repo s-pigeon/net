@@ -9,7 +9,7 @@ import (
 	"syscall"
 	"time"
 
-	"golang.org/x/net/internal/socket"
+	"github.com/s-pigeon/net/internal/socket"
 )
 
 // BUG(mikio): On Windows, the JoinSourceSpecificGroup,

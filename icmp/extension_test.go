@@ -9,7 +9,7 @@ import (
 	"reflect"
 	"testing"
 
-	"golang.org/x/net/internal/iana"
+	"github.com/s-pigeon/net/internal/iana"
 )
 
 var marshalAndParseExtensionTests = []struct {

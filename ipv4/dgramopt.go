@@ -8,7 +8,7 @@ import (
 	"net"
 	"syscall"
 
-	"golang.org/x/net/bpf"
+	"github.com/s-pigeon/net/bpf"
 )
 
 // MulticastTTL returns the time-to-live field value for outgoing

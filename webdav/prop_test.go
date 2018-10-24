@@ -13,7 +13,7 @@ import (
 	"sort"
 	"testing"
 
-	"golang.org/x/net/context"
+	"github.com/s-pigeon/net/context"
 )
 
 func TestMemPS(t *testing.T) {

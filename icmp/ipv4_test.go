@@ -11,8 +11,8 @@ import (
 	"runtime"
 	"testing"
 
-	"golang.org/x/net/internal/socket"
-	"golang.org/x/net/ipv4"
+	"github.com/s-pigeon/net/internal/socket"
+	"github.com/s-pigeon/net/ipv4"
 )
 
 type ipv4HeaderTest struct {
