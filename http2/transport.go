@@ -361,6 +361,24 @@ func authorityAddr(scheme string, authority string) (addr string) {
 	return net.JoinHostPort(host, port)
 }
 
+// GetClientConnError is wrapped t.connPool().GetClientConn error
+type GetClientConnError struct {
+	Err error
+}
+
+func (err GetClientConnError) Error() string {
+	return err.Err.Error()
+}
+
+// AfterRoundTripError is error after roundtrip
+type AfterRoundTripError struct {
+	Err error
+}
+
+func (err AfterRoundTripError) Error() string {
+	return err.Err.Error()
+}
+
 // RoundTripOpt is like RoundTrip, but takes options.
 func (t *Transport) RoundTripOpt(req *http.Request, opt RoundTripOpt) (*http.Response, error) {
 	if !(req.URL.Scheme == "https" || (req.URL.Scheme == "http" && t.AllowHTTP)) {
@@ -372,7 +390,7 @@ func (t *Transport) RoundTripOpt(req *http.Request, opt RoundTripOpt) (*http.Res
 		cc, err := t.connPool().GetClientConn(req, addr)
 		if err != nil {
 			t.vlogf("http2: Transport failed to get client conn for %s: %v", addr, err)
-			return nil, err
+			return nil, GetClientConnError{Err: err}
 		}
 		traceGotConn(req, cc)
 		res, gotErrAfterReqBodyWrite, err := cc.roundTrip(req)
@@ -394,7 +412,7 @@ func (t *Transport) RoundTripOpt(req *http.Request, opt RoundTripOpt) (*http.Res
 		}
 		if err != nil {
 			t.vlogf("RoundTrip failure: %v", err)
-			return nil, err
+			return nil, AfterRoundTripError{Err: err}
 		}
 		return res, nil
 	}
