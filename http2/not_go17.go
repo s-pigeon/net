@@ -84,4 +84,4 @@ func (cc *ClientConn) Ping(ctx contextContext) error {
 	return cc.ping(ctx)
 }
 
-func (t *Transport) idleConnTimeout() time.Duration { return 0 }
+func (t *Transport) idleConnTimeout() time.Duration { return t.IdleConnTimeout }

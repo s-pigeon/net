@@ -43,7 +43,7 @@ func (t *Transport) idleConnTimeout() time.Duration {
 	if t.t1 != nil {
 		return t.t1.IdleConnTimeout
 	}
-	return 0
+	return t.IdleConnTimeout
 }
 
 func setResponseUncompressed(res *http.Response) { res.Uncompressed = true }

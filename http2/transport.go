@@ -101,6 +101,9 @@ type Transport struct {
 
 	connPoolOnce  sync.Once
 	connPoolOrDef ClientConnPool // non-nil version of ConnPool
+
+	// Stay idle conn until elapsed specified time(not specified, no limit)
+	IdleConnTimeout time.Duration
 }
 
 func (t *Transport) maxHeaderListSize() uint32 {
